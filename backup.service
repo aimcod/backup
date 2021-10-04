@@ -1,0 +1,9 @@
+[Unit]
+Description=A simple backup tool that runs periodically to backup the entire system..
+Wants=backup.timer
+
+[Service]
+ExecStart=/usr/bin/bash /home/andrei/backup
+
+
+

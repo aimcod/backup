@@ -1,0 +1,23 @@
+[Unit]
+Description=timer for backup.service
+Requires=backup.service
+
+[Timer]
+Unit=backup.service
+OnCalendar=*-*-* 12:00:00 
+
+#OnCalendar=*-*-* *:05,15,25,35,45,55:00
+#^runs at every minute that ends with a 5. e.g. 10:05, 10:15, 10:25, 10:35, etc..
+
+#OnCalendar=*-*-* *:*:00
+#^runs every minute
+
+#OnCalendar=*-*-* *:00:00
+#^runs every hour
+
+#OnActiveSec=1800 
+#^runs every 30 minutes from the moment the timer was started.
+
+[Install]
+WantedBy=timers.target
+
