@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+
+/usr/bin/rsync -avzhP / /mnt/sda4/backups/ --exclude /dev --exclude /proc --exclude /sys --exclude /tmp --exclude /run --exclude /mnt --exclude /media --exclude /lost+found --delete
+
+getStatus=$(systemctl status backup.service | grep -e "backup.service:" -e sent -e total | cut -d':' -f4-10)
+
+echo -e "to: aimcorp2018@gmail.com\nSubject:File sync successfully completed on $(hostname).\n\n$getStatus" | /usr/sbin/sendmail -t -f root
