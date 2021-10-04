@@ -5,4 +5,4 @@
 
 getStatus=$(systemctl status backup.service | grep -e "backup.service:" -e sent -e total | cut -d':' -f4-10)
 
-echo -e "to: aimcorp2018@gmail.com\nSubject:File sync successfully completed on $(hostname).\n\n$getStatus" | /usr/sbin/sendmail -t -f root
+echo -e "to: example@gmail.com\nSubject:File sync successfully completed on $(hostname).\n\n$getStatus" | /usr/sbin/sendmail -t -f root
